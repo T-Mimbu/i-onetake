@@ -2,4 +2,5 @@ fastapi==0.115.5
 uvicorn[standard]==0.30.6
 numpy==1.26.4
 python-multipart==0.0.9
+anyio==4.6.2.post1   # 同時実行制御を使うなら（uvicorn依存でほぼ入りますが明示推奨）
 
