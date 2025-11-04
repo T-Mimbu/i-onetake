@@ -1,12 +1,16 @@
+# server/app.py 先頭付近
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))  # ← これを追加（/opt/render/project/src をパスに）
+
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import numpy as np
 import wave
 from io import BytesIO
-import anyio  # ← 追加（同時実行制御に使う）
 
 from core.analysis import analyze_wave
+
 
 app = FastAPI(title="i-onetake-analyzer", version="1.0.0")
 
