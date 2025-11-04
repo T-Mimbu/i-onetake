@@ -1,6 +1,6 @@
-# server/app.py 先頭付近
 import os, sys
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))  # ← これを追加（/opt/render/project/src をパスに）
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))  # core を読ませる用（入れてなければ追加）
+import anyio  # ← これを追加！
 
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,7 +10,6 @@ import wave
 from io import BytesIO
 
 from core.analysis import analyze_wave
-
 
 app = FastAPI(title="i-onetake-analyzer", version="1.0.0")
 
